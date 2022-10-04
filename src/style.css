@@ -8,6 +8,9 @@ body, .wrapper {
 .rwd-bs {
     margin-top: 122px;
 }
+.header {
+    background: #002e3f !important;
+}
 a:hover { 
     text-decoration: none !important;
 }
@@ -146,6 +149,29 @@ strong {
     flex-direction: column;
     justify-content: space-between;
     padding-left: 50px;
+}
+#who .col-12:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 50px;
+}
+#who h2 {
+    font-weight: 900;
+}
+#who ul {
+    padding-left: 0;
+}
+#who li {
+    list-style-type: none;
+    margin-bottom: 8px;
+}
+#who li::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    color: green;
+    margin-right: 10px;
 }
 .works-point {
     display: flex;
