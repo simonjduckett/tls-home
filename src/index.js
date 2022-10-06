@@ -11,11 +11,26 @@ window.onload = (event) => {
         experimentContent.appendChild(createCategories())
         experimentContent.appendChild(createWorksSection())
         experimentContent.appendChild(createWhoSection())
+        experimentContent.appendChild(createReviewsSection())
+        experimentContent.appendChild(createLogosSection())
+        experimentContent.appendChild(buildNesting([
+            { el: 'div', classname: 'container' },
+            { el: 'div', classname: 'row' },
+            { el: 'div', classname: 'col-12' },
+            { el: 'div', classname: 'col-12', sib: true }
+        ]))
         
         let header = document.querySelector('header')
         header.after(experimentContent)
 
         removeExsiting()
+
+        new Glide('.glide', {
+            type: 'carousel',
+            //autoplay: 3000,
+            perView: 4,
+            gap: 25
+        }).mount()
     }
 
     function createHero() {
@@ -306,6 +321,89 @@ window.onload = (event) => {
         return who
     }
 
+    function createReviewsSection() {
+        let slides = document.getElementsByClassName('testimonial__item')
+        let reviewsSection = document.createElement('section')
+        reviewsSection.id = 'tls-reviews'
+        let con = createContainer()
+
+        let glide = document.createElement('div')
+        glide.classList.add('glide')
+        let glideTrack = document.createElement('div')
+        glideTrack.classList.add('glide__track')
+        glideTrack.setAttribute('data-glide-el', 'track')
+        let glideUl = document.createElement('ul')
+        glideUl.classList.add('glide__slides')
+
+        glideTrack.appendChild(glideUl)
+        glide.appendChild(glideTrack)
+
+
+
+        for(let i = 0; i < slides.length; i++) {
+            let x = document.createElement('li')
+            x.innerHTML = slides[i].innerHTML
+            x.classList.add('glide__slide')
+            glideUl.appendChild(x)
+        }
+
+        con.appendChild(glide)
+        reviewsSection.appendChild(con)
+        
+        return reviewsSection
+    }
+
+    function createLogosSection() {
+        let logos = document.createElement('section')
+        logos.id = 'creditations'
+
+        let c = createContainer()
+        logos.appendChild(c)
+
+        let heading = document.createElement('h2')
+        heading.innerHTML = 'Legal professionals are members of'
+        let subHeading = document.createElement('p')
+        subHeading.innerHTML = 'We cover a wide vaiety of legal services'
+
+        c.appendChild(heading)
+        c.appendChild(subHeading)
+
+        let logosDiv = document.createElement('div')
+        logosDiv.id = 'logosDiv'
+
+
+
+
+
+        return logos
+    }
+
+    function buildNesting(data){
+        let topEl = null
+        let myEls = []
+
+        data.forEach((item, i) => {
+            let x = document.createElement(item.el)
+            x.classList.add(item.classname)
+            if(item.sib) x.classList.add('sib')
+            myEls.push(x)
+        })
+
+        for (let i = 0; i < myEls.length; i++) {
+            if(i === 0) {
+                topEl = myEls[i]
+                continue
+            }
+            if(myEls[i].classList.contains('sib')) {
+                myEls[i - 2].appendChild(myEls[i])
+                myEls[i].classList.remove('sib')
+            } else {
+                myEls[i - 1].appendChild(myEls[i])
+            }
+        }
+        return topEl
+    }
+
     function removeExsiting() {
         document.querySelector('.slideshow').remove()
     }
@@ -320,4 +418,6 @@ window.onload = (event) => {
     }
 
     run()
+    
 };
+

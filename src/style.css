@@ -190,3 +190,32 @@ strong {
     font-size: 50px;
     margin-right: 10px;
 }
+#testimonials {
+    display: none;
+}
+#tls-reviews {
+    padding: 48px 0 48px 0;
+}
+.glide__slide {
+    color: #333;
+    border: 1px solid rgb(191, 191, 191);
+    background-color: #fff;
+    border-radius: 10px;
+    height: 300px;
+}
+.glide__slide .core {
+    min-width: unset !important;
+    max-width: unset !important;
+}
+.testimonial__body {
+    color: #333;
+    font-size: 1rem;
+}
+.testimonial__blockquote {
+    color: #333;
+}
+#creditations {
+    background-color: var(--tls-light-blue);
+    color: #fff;
+    padding: 48px 0 48px 0;
+}
