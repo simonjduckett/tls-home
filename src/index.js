@@ -66,28 +66,28 @@ window.onload = (event) => {
 
         let o = [
             {
+                title: 'divorce lawyers',
+                img: 'https://via.placeholder.com/150',
+                content: 'Find lawyers for Break up Advice',
+                link: '/family/break-up-advice'
+            },
+            {
+                title: 'property solicitors',
+                img: 'https://via.placeholder.com/150',
+                content: 'Property law covers all matters relating to the ownership or use of land and real estate.',
+                link: '/property'
+            },
+            {
                 title: 'wills and probate',
                 img: 'https://via.placeholder.com/150',
-                content: 'info about product',
-                link: '/wills'
+                content: 'We know how important it is to write a will.',
+                link: '/wills-probate/wills'
             },
             {
-                title: 'divorce',
+                title: 'family',
                 img: 'https://via.placeholder.com/150',
-                content: 'info about product',
-                link: '/wills'
-            },
-            {
-                title: 'property',
-                img: 'https://via.placeholder.com/150',
-                content: 'info about product',
-                link: '/wills'
-            },
-            {
-                title: 'child maintenace',
-                img: 'https://via.placeholder.com/150',
-                content: 'info about product',
-                link: '/wills'
+                content: 'Family law specialises in relationships including financial provision and arrangements for children.',
+                link: '/family'
             }
         ]
 

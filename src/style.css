@@ -25,6 +25,7 @@ p {
 h1,h2,h3,h4,h5,h6 {
     color: #002E3F;
 }
+
 strong {
     font-weight: 700;
 }
@@ -41,7 +42,12 @@ strong {
 }
 #hero h1 {
     color: #fff !important;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin-bottom: 10px;
 }
+
 .full-width-search,
 .category-icons {
     display: none !important;
@@ -57,9 +63,14 @@ strong {
     display: flex;
     flex-direction: column;
     min-height: 200px;
+    height: 100%;
     justify-content: space-between;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 5px 5px 15px rgb(236, 236, 236);
+}
+.top-card p {
+    flex-grow: 1;
 }
 @media(max-width: 768px) {
     .top-card {
@@ -76,6 +87,7 @@ strong {
 .trusted {
     display: flex;
     align-items: center;
+    margin-top: 20px;
 }
 .trusted p {
     margin-top: 0;
@@ -88,6 +100,8 @@ strong {
 .btn--orange {
     background: var(--tls-orange);
     border-color: var(--tls-orange);
+    text-transform: capitalize;
+    font-weight: 700;
 }
 #categories {
     padding: 39px 0;
@@ -101,10 +115,12 @@ strong {
     align-items: center;
     margin-bottom: 20px;
     margin: 20px 0 10px 0;
-    transition: all .4s;
+    transition: all .3s;
 }
 .tls-cat-link:hover {
-    box-shadow: 5px 10px #c4c4c4;
+    box-shadow: 5px 10px 15px #d3d3d3;
+    background-color: #002E3F;
+    color: #fff;
 }
 .tls-cat-link div:first-of-type {
     background-color: #F2F7FA;
@@ -115,10 +131,12 @@ strong {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #002E3F !important;
 }
 .tls-cat-link div:first-of-type i {
     font-size: 26px;
 }
+
 .fa-arrow-right {
     color: var(--tls-orange);
     font-size: 22px;
