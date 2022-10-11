@@ -29,7 +29,7 @@ window.onload = (event) => {
 
         new Glide('.glide', {
             type: 'carousel',
-            autoplay: 3000,
+            autoplay: 500,
             perView: 4,
             gap: 25,
             breakpoints: {
@@ -66,28 +66,28 @@ window.onload = (event) => {
 
         let o = [
             {
-                title: 'divorce lawyers',
-                img: 'https://via.placeholder.com/150',
+                title: 'start divorce proceedings',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Divorce_1.jpg',
                 content: 'Find lawyers for Break up Advice',
-                link: '/family/break-up-advice'
+                link: '/personal/family/break-up-advice/starting-divorce-proceedings/compare/c86f546a-a12d-4473-907c-f3b55e2f7d8d/question/27985138-cbb8-4b7a-b47e-f9f9846c4026/who-will-start-the-divorce-proceedings'
             },
             {
-                title: 'property solicitors',
-                img: 'https://via.placeholder.com/150',
-                content: 'Property law covers all matters relating to the ownership or use of land and real estate.',
-                link: '/property'
+                title: 'power of attorney for an individual',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Wills_Probate_1.jpg',
+                content: 'Find lawyers for wills',
+                link: '/personal/wills-probate/protecting-others/power-of-attorney-for-an-individual/compare/dfb726df-7574-4b4d-ab2f-f4a516848463/question/b40b3d92-cd8b-4c11-816f-1643d033b491/are-you-resident-in-england-or-wales'
             },
             {
-                title: 'wills and probate',
-                img: 'https://via.placeholder.com/150',
+                title: 'draft an individual will',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Wills_Probate_2.jpg',
                 content: 'We know how important it is to write a will.',
-                link: '/wills-probate/wills'
+                link: '/personal/wills-probate/wills/draft-individual-will/compare/95120d9b-ef21-450e-880a-a7b361e4efe8/question/b6decd04-ddcf-4790-a435-1b07d2900a93/do-you-live-in-england-or-wales'
             },
             {
-                title: 'family',
-                img: 'https://via.placeholder.com/150',
-                content: 'Family law specialises in relationships including financial provision and arrangements for children.',
-                link: '/family'
+                title: 'equity transfer',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Property_1.jpg',
+                content: 'Find lawyers for equity transfer',
+                link: '/personal/property/equity-matters/equity-transfer/compare/425d2849-5d42-4f48-882e-9f74931050b3/question/727a49d1-a6f8-402d-aa25-9f95e1b21daf/is-the-property-in-england-or-wales'
             }
         ]
 
@@ -112,7 +112,7 @@ window.onload = (event) => {
             let card = document.createElement('div')
             card.classList.add('top-card')
 
-            card.innerHTML = `<h3>${this.title}</h3><img src='${this.img}' /><p>${this.content}</p><a class='btn btn--orange' href='${this.link}'>${this.title}</a>`
+            card.innerHTML = `<h3>${this.title}</h3><img src='${this.img}' /><p>${this.content}</p><a class='btn btn--orange' href='${this.link}'>Get quotes</a>`
 
             return card
         }
@@ -432,73 +432,117 @@ window.onload = (event) => {
         c.appendChild(p)
 
         c.appendChild(createRow({
-            title: '<i class="fa-solid fa-house"></i> Property',
+            title: 'Disputes',
             col1:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/disputes/money-disputes/bankruptcy-proceedings">Bankruptcy Proceedings</a>',
+                '<a href="/disputes/general-disputes/consumer-disputes">Consumer Disputes</a>'
             ],
             col2:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/disputes/money-disputes/money-disputes">Money Disputes</a>',
+                '<a href="/disputes/general-disputes/neighbour-disputes">Neighbour Disputes</a>'
             ],
             col3:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/disputes/general-disputes/other-disputes">Other Disputes</a>'
             ],
         }))
         c.appendChild(createRow({
-            title: '<i class="fa-solid fa-family"></i> Family',
+            title: 'Employment',
             col1:   [
-                "<a href='/'>link textt</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/employment/employment-disputes/disciplinary-hearings">Disciplinary Hearings</a>',
+                '<a href="/employment/employment-disputes/discrimination-claim">Discrimination Claim</a>',
             ],
             col2:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/employment/employment-disputes/equal-pay-claim">Equal Pay Claim</a>',
+                '<a href="/employment/employment-disputes/redundancy-claim">Redundancy Claim</a>',
+                '<a href="/employment/employment-disputes/settlement-agreements">Settlement Agreements</a>',
             ],
             col3:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/employment/employment-disputes/tupe">TUPE</a>',
+                '<a href="/employment/employment-disputes/unfair-dismissal-claim">Unfair Dismissal Claim</a>',
+                '<a href="/employment/employment-disputes/unpaid-wages-claim">Unpaid Wages Claim</a>'
             ],
         }))
         c.appendChild(createRow({
-            title: 'Wills & Probate',
+            title: 'Family',
             col1:   [
-                "<a href='/'>wills</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/family/children-advice/child-abduction">Child Abduction</a>',
+                '<a href="/family/children-advice/child-holiday-arrangements">Child Holiday Arrangements</a>',
+                '<a href="/family/children-advice/child-residency-contact">Child Residency &amp; Contact</a>',
+                '<a href="/family/break-up-advice/civil-partnership-breakdown">Civil Partnership Breakdown</a>',
+                '<a href="/family/relationship-advice/cohabitation-advice">Cohabitation</a>',
             ],
             col2:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/family/break-up-advice/cohabitation-breakdown">Cohabitation Breakdown</a>',
+                '<a href="/family/break-up-advice/domestic-violence">Domestic Violence</a>',
+                '<a href="/family/break-up-advice/family-mediation">Family Mediation</a>',
+                '<a href="/family/relationship-advice/gender-recognition-advice">Gender Recognition</a>',
+                '<a href="/family/children-advice/other-child-issues">Other Child Issues</a>',
             ],
             col3:   [
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
-                "<a href='/'>link text</a>",
+                '<a href="/family/children-advice/parental-responsibility">Parental Responsibility</a>',
+                '<a href="/family/relationship-advice/prenup-postnup-advice">Prenup / Postnup Advice</a>',
+                '<a href="/family/break-up-advice/respond-to-a-divorce-petition">Respond to a Divorce Petition</a>',
+                '<a href="/family/break-up-advice/starting-divorce-proceedings">Start Divorce proceedings</a>'
+            ],
+        }))
+        c.appendChild(createRow({
+            title: 'Motor Offences',
+            col1:   [
+                '<a href="/motor-offences/driving-offences/careless-dangerous-driving">Careless / Dangerous Driving</a>',
+                '<a href="/motor-offences/driving-offences/drinks-drug-driving">Drinks / Drug Driving</a>',
+                
+            ],
+            col2: ['<a href="/motor-offences/driving-offences/speeding-offences">Speeding Offences</a>'],
+            col3:   [],
+        }))
+        c.appendChild(createRow({
+            title: 'Personal injury',
+            col1:   [
+                '<a href="/personal-injury/accidents/accidents-at-work-claim">Accidents at work claim</a>',
+                '<a href="/personal-injury/accidents/accidents-in-a-public-place-claim">Accidents in a public place claim</a>',
+                
+            ],
+            col2: ['<a href="/personal-injury/accidents/road-traffic-accident-claim">Road traffic accident claim</a>'],
+            col3:   [],
+        }))
+        c.appendChild(createRow({
+            title: 'Property',
+            col1:   [
+                '<a href="/property/property-ownership/buying-selling-a-property">Buying &amp; Selling a Property</a>',
+                '<a href="/property/property-ownership/buying-a-property">Buying A Property</a>',
+                '<a href="/property/leases/enfranchisement">Enfranchisement</a>',
+                '<a href="/property/equity-matters/equity-release">Equity Release</a>',
+                
+            ],
+            col2: [
+                '<a href="/property/equity-matters/equity-transfer">Equity Transfer</a>',
+                '<a href="/property/leases/lease-extension-landlord">Lease Extension (Landlord)</a>',
+                '<a href="/property/leases/lease-extension-tenant">Lease Extension (Tenant)</a>',
+                '<a href="/property/disputes/possession-claims">Possession Claims</a>',
+            ],
+            col3:   [
+                '<a href="/property/property-ownership/remortgaging-a-property">Remortgaging a Property</a>',
+                '<a href="/property/property-ownership/selling-a-property">Selling a Property</a>',
+                '<a href="/property/disputes/tenancy-disputes-for-landlord">Tenancy Disputes (for Landlord)</a>',
+                '<a href="/property/disputes/tenancy-disputes-for-tenant">Tenancy Disputes (for Tenant)</a>',
+            ],
+        }))
+        c.appendChild(createRow({
+            title: 'Wills and probate',
+            col1:   [
+                '<a href="/wills-probate/dealing-with-an-estate/administer-an-estate">Administer an estate</a>',
+                '<a href="/wills-probate/dispute/contest-a-will">Contest a will</a>',
+                '<a href="/wills-probate/protecting-others/court-of-protection-deputyship">Court of Protection deputyship</a>',
+                '<a href="/wills-probate/wills/draft-individual-will">Draft an individual will</a>',
+                
+            ],
+            col2: [
+                '<a href="/wills-probate/wills/draft-joint-wills">Draft joint wills</a>',
+                '<a href="/wills-probate/dealing-with-an-estate/obtain-a-grant">Obtain a grant</a>',
+            ],
+            col3:   [
+                '<a href="/wills-probate/protecting-others/power-of-attorney-for-a-couple">Power of Attorney for a couple</a>',
+                '<a href="/wills-probate/protecting-others/power-of-attorney-for-an-individual">Power of Attorney for an individual</a>'
             ],
         }))
 

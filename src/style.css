@@ -79,10 +79,13 @@ strong {
 }
 .top-card h3 {
     text-transform: capitalize;
+    min-height: 55px;
+    font-size: 21px;
 }
 .top-card img {
     min-width: 100%;
     margin: 15px 0;
+    border-radius: 5px;
 }
 .trusted {
     display: flex;
@@ -354,5 +357,15 @@ article.testimonial {
     }
     #topFooter .row {
         padding: 8px 0;
+    }
+    #topFooter .row {
+        border-bottom: 1px solid var(--tls-light-blue);
+        /* padding: 0px 10px 10px 10px; */
+    }
+    #topFooter h3 {
+        font-size: 20px;
+    }
+    #topFooter a {
+        padding: 5px 0;
     }
 }
