@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib --no-comments --plugins transform-remove-console"
+    "build": "babel src -d lib --no-comments --plugins transform-remove-console",
+    "build-b": "babel src/bVarient.js -d lib --no-comments --plugins transform-remove-console"
   },
   "author": "",
   "license": "ISC",
