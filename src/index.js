@@ -10,6 +10,7 @@ window.onload = (event) => {
         experimentContent.appendChild(createCategories())
         experimentContent.appendChild(createWorksSection())
         experimentContent.appendChild(createWhoSection())
+        experimentContent.appendChild(createFaqsSection())
         experimentContent.appendChild(createReviewsSection())
         experimentContent.appendChild(createLogosSection())
         experimentContent.appendChild(createTopFooter())
@@ -29,12 +30,15 @@ window.onload = (event) => {
 
         new Glide('.glide', {
             type: 'carousel',
-            autoplay: 500,
+            autoplay: 2000,
             perView: 4,
             gap: 25,
             breakpoints: {
                 768: {
                     perView: 1
+                },
+                992: {
+                    perView: 3
                 }
             }
         }).mount()
@@ -93,7 +97,7 @@ window.onload = (event) => {
 
         o.forEach(item => {
             let col = document.createElement('div')
-            col.classList.add('col-12', 'col-md-3')
+            col.classList.add('col-12', 'col-md-6', 'col-lg-3')
             let c = new card(item)
             col.appendChild(c)
             row.appendChild(col)
@@ -324,6 +328,55 @@ window.onload = (event) => {
         c.appendChild(row)
         
         return who
+    }
+
+    function createFaqsSection() {
+        let faqs = document.createElement('section')
+        faqs.id = 'faqs'
+
+        let c = createContainer()
+        let h = document.createElement('h2')
+        h.innerHTML = 'Frequently asked questions'
+        c.appendChild(h)
+        let p = document.createElement('p')
+        p.innerHTML = 'Whilst you might have used a comparison site for lots of other things, you might not have used one for legal services. Here are the answers to our top questions.'
+        c.appendChild(p)
+
+        c.innerHTML += `<div class="faq-search-results">
+   <div class="accordion" id="how-does-the-law-superstore-work">
+        <h3 class="accordion__title"><a href="javascript:;">Are you a law firm?</a></h3>
+      <div class="accordion__txt" style='display: none;'>
+            <p>We’re not a law firm, we’re a comparison site. We help you find lawyers in your area, for the service you need. We share a lot of information to help you make your decision and find experts, but we’re not lawyers ourselves.</p>
+      </div>
+   </div>
+   <div class="accordion" id="how-does-the-law-superstore-work">
+        <h3 class="accordion__title"><a href="javascript:;">What happens when I get a quote?</a></h3>
+      <div class="accordion__txt" style='display: none;'>
+            <p>When you submit your details, you’ll receive an email with the details of up to four legal experts who cover your area and the service you need. At the same time, your details will be shared with those firms so they can offer you more details. We will only ever share your details with those firms you’ve received quotes for.</p>
+      </div>
+   </div>
+   <div class="accordion" id="how-does-the-law-superstore-work">
+        <h3 class="accordion__title"><a href="javascript:;">Are my details secure?</a></h3>
+      <div class="accordion__txt" style='display: none;'>
+            <p>We know how important data security and privacy is, especially around legal matters. We will only ever share the details of what you require and your contact information with the firms who quoted for you. This will never be more than four firms.</p>
+      </div>
+   </div>
+   <div class="accordion" id="how-does-the-law-superstore-work">
+        <h3 class="accordion__title"><a href="javascript:;">What do The Law Superstore charge?</a></h3>
+      <div class="accordion__txt" style='display: none;'>
+            <p>We are a free service to help people find legal services. We know that for many people finding a lawyer is stressful. And if you don’t really know what service you need, it’s hard to know what to ask for, and how much it’s going to cost. Our business model is based on a small fee being paid by the legal firms to appear on our site. They all pay the same, and no firm is given preferential treatment or priority. We recommend firms to you based on their location and service offerings. Nothing else.</p>
+      </div>
+   </div>
+   <div class="accordion" id="how-does-the-law-superstore-work">
+        <h3 class="accordion__title"><a href="javascript:;">How do I know the lawyers are any good?</a></h3>
+      <div class="accordion__txt" style='display: none;'>
+            <p>We only work with experts who can give you a great experience. We thoroughly vet our partners, ensuring they’re fully regulated by trustworthy bodies including SRA, BSB, CLC, IPW, IoP or CILEX. We check accreditations, review ratings, business finances, online presence, and credit checks. We only partner with firms who have a redress scheme, so if you do need to complain for any reason, there’s always an option available to you. We also do ongoing checks and ask our users for reviews to ensure we’re only working with the very best.</p>
+      </div>
+   </div>
+</div>`
+
+faqs.appendChild(c)
+return faqs
     }
 
     function createReviewsSection() {
