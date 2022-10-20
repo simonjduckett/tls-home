@@ -1,4 +1,4 @@
-window.onload = (event) => {
+//window.onload = (event) => {
     console.log('page is fully loaded!');
 
     function run() {
@@ -27,21 +27,29 @@ window.onload = (event) => {
         header.after(experimentContent)
 
         removeExsiting()
+        
+        $('.accordion').click(function () {
+            $(this).toggleClass('accordion--open')
+            $('.accordion__txt', this).toggleClass('showFaq')
+        })
 
-        new Glide('.glide', {
-            type: 'carousel',
-            autoplay: 2000,
-            perView: 4,
-            gap: 25,
-            breakpoints: {
-                768: {
-                    perView: 1
-                },
-                992: {
-                    perView: 3
+        setTimeout(() => {
+            console.log('trying glide')
+            new Glide('.glide', {
+                type: 'carousel',
+                autoplay: 8000,
+                perView: 4,
+                gap: 25,
+                breakpoints: {
+                    768: {
+                        perView: 1
+                    },
+                    992: {
+                        perView: 3
+                    }
                 }
-            }
-        }).mount()
+            }).mount()
+        }, 1000);
     }
 
     function createHero() {
@@ -50,7 +58,7 @@ window.onload = (event) => {
         let c = createContainer()
         c.classList.add('heroContainer')
 
-        c.innerHTML += '<div><h1>The legal comparison website</h1><p>Helping you save money on legal bills</p><div class="trusted"><i class="fa-solid fa-circle-check"></i><p>Trusted by over 50,000 customers</p></div></div>'
+        c.innerHTML += '<div><h1>The UK’s first legal comparison site</h1><p>Save time and money finding a legal expert</p><div class="trusted"><i class="fa-solid fa-circle-check"></i><p>We’ve helped over 50,000 people find a law firm that was right for them</p></div></div>'
 
         hero.appendChild(c)
         return hero
@@ -62,36 +70,36 @@ window.onload = (event) => {
         topCards.classList.add('py-3')
         let c = createContainer()
         let h = document.createElement('h2')
-        h.classList.add('mb-2')
-        h.innerHTML = 'Compare and get legal quotes'
+        h.classList.add('mb-3')
+        h.innerHTML = 'Compare costs and get quotes for popular legal services'
         c.appendChild(h)
         let row = document.createElement('div')
         row.classList.add('row')
 
         let o = [
             {
-                title: 'start divorce proceedings',
-                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Divorce_1.jpg',
-                content: 'Find lawyers for Break up Advice',
-                link: '/personal/family/break-up-advice/starting-divorce-proceedings/compare/c86f546a-a12d-4473-907c-f3b55e2f7d8d/question/27985138-cbb8-4b7a-b47e-f9f9846c4026/who-will-start-the-divorce-proceedings'
+                title: 'draft an individual will',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Wills_Probate_2.jpg',
+                content: 'Have your will written by our specialist legal experts.',
+                link: '/personal/wills-probate/wills/draft-individual-will/compare'
             },
             {
                 title: 'power of attorney for an individual',
-                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Wills_Probate_1.jpg',
-                content: 'Find lawyers for wills',
-                link: '/personal/wills-probate/protecting-others/power-of-attorney-for-an-individual/compare/dfb726df-7574-4b4d-ab2f-f4a516848463/question/b40b3d92-cd8b-4c11-816f-1643d033b491/are-you-resident-in-england-or-wales'
-            },
-            {
-                title: 'draft an individual will',
-                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Wills_Probate_2.jpg',
-                content: 'We know how important it is to write a will.',
-                link: '/personal/wills-probate/wills/draft-individual-will/compare/95120d9b-ef21-450e-880a-a7b361e4efe8/question/b6decd04-ddcf-4790-a435-1b07d2900a93/do-you-live-in-england-or-wales'
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/TLS%20Homepage/MicrosoftTeams-image-5.png',
+                content: 'If you need to make a power of attorney, we can help.',
+                link: '/personal/wills-probate/protecting-others/power-of-attorney-for-an-individual/compare'
             },
             {
                 title: 'equity transfer',
                 img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Property_1.jpg',
-                content: 'Find lawyers for equity transfer',
-                link: '/personal/property/equity-matters/equity-transfer/compare/425d2849-5d42-4f48-882e-9f74931050b3/question/727a49d1-a6f8-402d-aa25-9f95e1b21daf/is-the-property-in-england-or-wales'
+                content: 'We have specialist conveyancing firms who can transfer equity in your home.',
+                link: '/personal/property/equity-matters/equity-transfer/compare/'
+            },
+            {
+                title: 'start divorce proceedings',
+                img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/Divorce_1.jpg',
+                content: 'Our specialist family law firms will guide you through the divorce process.',
+                link: '/personal/family/break-up-advice/starting-divorce-proceedings/compare'
             }
         ]
 
@@ -113,7 +121,9 @@ window.onload = (event) => {
             this.content = data.content
             this.link = data.link
 
-            let card = document.createElement('div')
+            //make link
+            let card = document.createElement('a')
+            card.href = this.link
             card.classList.add('top-card')
 
             card.innerHTML = `<h3>${this.title}</h3><img src='${this.img}' /><p>${this.content}</p><a class='btn btn--orange' href='${this.link}'>Get quotes</a>`
@@ -134,7 +144,7 @@ window.onload = (event) => {
         sectionTitle.innerHTML = 'Compare and get legal quotes for many types of legal services'
         c.appendChild(sectionTitle)
         let p = document.createElement('p')
-        p.innerHTML = 'We cover a wide variety of legal services, ranging from Property to Personal Injury, and Buisness Employment to Buisness Disputes.'
+        p.innerHTML = 'We cover a wide variety of legal services, ranging from Property to Personal Injury, and Business Employment to Business Disputes.'
         c.appendChild(p)
 
         let row = document.createElement('div')
@@ -143,52 +153,52 @@ window.onload = (event) => {
 
         let o = [
             { 
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-book"></i>',
+                name: 'Wills & Probate',
+                content: 'Write a will, contest a will, power of attorney, and more … ',
+                link: '/wills-probate'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-house-user"></i>',
+                name: 'Property',
+                content: 'Equity release, transferring equity, leases and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/property/equity-matters'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-house"></i>',
+                name: 'Conveyancing',
+                content: 'Buying a property, selling a property, re-mortgaging a property, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/property/property-ownership'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-people-roof"></i>',
+                name: 'Family',
+                content: 'Divorce, child arrangements, financially settlements, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/family'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-briefcase"></i>',
+                name: 'Business Property',
+                content: 'Buying commercial property, selling commercial property, leases, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/business/business-property'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-person-harassing"></i>',
+                name: 'Personal Disputes',
+                content: 'Neighbour disputes, money disputes, consumer disputes, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/disputes'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-car"></i>',
+                name: 'Motor Offences',
+                content: 'Dangerous driving charges, careless driving charges, speeding offences, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/motor-offences'
             },
             {
-                icon: '<i class="fa-solid fa-wheelchair-move"></i>',
-                name: 'Personal Injury',
-                content: 'Some content about this category',
-                link: '/wills'
+                icon: '<i class="fa-solid fa-user-nurse"></i>',
+                name: 'Employment',
+                content: 'Unfair dismissal, discrimination claims, disciplinary hearings, and more … ',
+                link: 'https://www.thelawsuperstore.co.uk/employment'
             }
         ]
 
@@ -256,7 +266,7 @@ window.onload = (event) => {
         c2.classList.add('col-12', 'col-md-6')
 
         //add everything to c2 and then append to row
-        c2.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/UwFs9CLJUFE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        c2.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/MC-JKSOu0Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
 
         row.appendChild(c2)
         c.appendChild(row)
@@ -280,14 +290,14 @@ window.onload = (event) => {
         c1.appendChild(h)
 
         let leftPara = document.createElement('p')
-        leftPara.innerHTML = "The Law Superstore is the UK\’s biggest legal comparison website. We\’re making it quick and easy to find lawyers. <br /> </br />With over 130 legal services on offer, from divorce to personal injury claims, we\’ve got you covered."
+        leftPara.innerHTML = "The Law Superstore is the UK’s first legal comparison site, designed to save you money when looking for a lawyer. Get instant quotes, compare prices, locations and features and choose the law firm that’s right for you. And we’re completely free to use.<br /><br />With over 130 legal services on offer, from divorce to personal injury claims, we can help you get a great deal on your legal fees. You compare everything else, why not lawyers?"
         c1.appendChild(leftPara)
 
         let checkList = document.createElement('ul')
 
-        checkList.appendChild(new checkPoint('Find the lawyer who works best for you'))
-        checkList.appendChild(new checkPoint('<b>Save time</b> by getting instant quotes instead of going from provider to provider'))
-        checkList.appendChild(new checkPoint('Get the best deal by finding the cheapest lawyer'))
+        checkList.appendChild(new checkPoint('Save money by comparing costs'))
+        checkList.appendChild(new checkPoint('We only work with quality, experienced and regulated legal firms '))
+        checkList.appendChild(new checkPoint('Competitive prices across lots of locations'))
         //checkList.appendChild(new checkPoint('Hear from your chosen provider within 4 hours'))
         //checkList.appendChild(new checkPoint('Only pay when you\'ve spoken and agree terms'))
         //checkList.appendChild(new checkPoint('Prices available for initial advice only and full service'))
@@ -310,7 +320,7 @@ window.onload = (event) => {
 
         c2.appendChild(new boldPoint({ icon: '<i class="fa-solid fa-minimize"></i>', title: 'Get instant quotes', text: 'Start comparing lawyers in 30 seconds.' }))
 
-        c2.appendChild(new boldPoint({ icon: '<i class="fa-solid fa-sterling-sign"></i>', title: 'Save money', text: 'Find the cheapest deal by comparing legal service providers.' }))
+        c2.appendChild(new boldPoint({ icon: '<i class="fa-solid fa-sterling-sign"></i>', title: 'Save money', text: 'Choose a law firm that meets your needs.' }))
 
         //add everything to c2 and then append to row
         function boldPoint(data) {
@@ -320,7 +330,7 @@ window.onload = (event) => {
 
             let x = document.createElement('div')
             x.classList.add('bold-point')
-            x.innerHTML = `<div>${this.icon}</div> <div><b>${this.title}</b><p>${this.text}</p></div>`
+            x.innerHTML = `<div>${this.icon}</div> <div><h3>${this.title}</h3><p>${this.text}</p></div>`
             return x
         }
 
@@ -417,18 +427,18 @@ return faqs
             glideUl.appendChild(x)
         }
 
-        let bullets = document.createElement('div')
-        bullets.classList.add('glide__bullets')
-        bullets.setAttribute('data-glide-el', 'controls[nav]')
-        for (let i = 0; i < slides.length; i++) {
-            let button = document.createElement('button')
-            button.classList.add('glide__bullet')
-            button.setAttribute('data-glide-dir', `=${i}`)
-            bullets.appendChild(button)
-        }
+        // let bullets = document.createElement('div')
+        // bullets.classList.add('glide__bullets')
+        // bullets.setAttribute('data-glide-el', 'controls[nav]')
+        // for (let i = 0; i < slides.length; i++) {
+        //     let button = document.createElement('button')
+        //     button.classList.add('glide__bullet')
+        //     button.setAttribute('data-glide-dir', `=${i}`)
+        //     bullets.appendChild(button)
+        // }
 
 
-        glide.appendChild(bullets)
+        // glide.appendChild(bullets)
         con.appendChild(glide)
         reviewsSection.appendChild(con)
         
@@ -443,9 +453,9 @@ return faqs
         logos.appendChild(c)
 
         let heading = document.createElement('h2')
-        heading.innerHTML = 'All our legal professionals are accredited or regulated.'
+        heading.innerHTML = 'Legal professionals you can trust'
         let subHeading = document.createElement('p')
-        subHeading.innerHTML = 'We cover a wide vaiety of legal services'
+        subHeading.innerHTML = 'All our legal professionals are accredited or regulated.'
 
         c.appendChild(heading)
         c.appendChild(subHeading)
@@ -454,14 +464,19 @@ return faqs
         logosDiv.id = 'logosDiv'
 
         let images = [
-            'https://via.placeholder.com/200',
-            'https://via.placeholder.com/200',
-            'https://via.placeholder.com/200',
-            'https://via.placeholder.com/200',
+            { img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/accreditations/cilex-cpq-logo.png', link:'https://www.cilex.org.uk/'},
+            { img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/accreditations/sra.png', link:'https://www.sra.org.uk/'},
+            { img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/accreditations/logo.png', link:'https://www.clc-uk.org/'},
+            { img: 'https://www.thelawsuperstore.co.uk/MediaLibrary/TheLawSuperstore/SampleMediaLibrary/accreditations/IPW_logo.svg', link:'https://www.ipw.org.uk/'}
         ]
         images.forEach(image => {
-            let x = document.createElement('img')
-            x.src = image
+            //let a = document.createElement('a')
+            //a.href = image.link
+            let x = document.createElement('div')
+            let i = document.createElement('img')
+            i.src = image.img
+            x.appendChild(i)
+            //a.appendChild(x)
             logosDiv.appendChild(x)
         })
         c.appendChild(logosDiv)
@@ -477,14 +492,14 @@ return faqs
         topFooter.appendChild(c)
 
         let h = document.createElement('h2')
-        h.innerHTML = 'Haven\’t found what you\’re looking for? We compare over 130 legal services.'
+        h.innerHTML = 'Can’t find what you’re looking for?'
         let p = document.createElement('p')
-        p.innerHTML = 'All advices are listed below'
+        p.innerHTML = 'We provide quotes for over 130 legal services. But we’ve also got lots of helpful guides and advice for whatever your legal needs are.'
 
         c.appendChild(h)
         c.appendChild(p)
 
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Disputes',
             col1:   [
                 '<a href="/disputes/money-disputes/bankruptcy-proceedings">Bankruptcy Proceedings</a>',
@@ -498,24 +513,24 @@ return faqs
                 '<a href="/disputes/general-disputes/other-disputes">Other Disputes</a>'
             ],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Employment',
             col1:   [
                 '<a href="/employment/employment-disputes/disciplinary-hearings">Disciplinary Hearings</a>',
                 '<a href="/employment/employment-disputes/discrimination-claim">Discrimination Claim</a>',
+                '<a href="/employment/employment-disputes/equal-pay-claim">Equal Pay Claim</a>'
             ],
             col2:   [
-                '<a href="/employment/employment-disputes/equal-pay-claim">Equal Pay Claim</a>',
                 '<a href="/employment/employment-disputes/redundancy-claim">Redundancy Claim</a>',
                 '<a href="/employment/employment-disputes/settlement-agreements">Settlement Agreements</a>',
+                '<a href="/employment/employment-disputes/tupe">TUPE</a>'
             ],
             col3:   [
-                '<a href="/employment/employment-disputes/tupe">TUPE</a>',
                 '<a href="/employment/employment-disputes/unfair-dismissal-claim">Unfair Dismissal Claim</a>',
                 '<a href="/employment/employment-disputes/unpaid-wages-claim">Unpaid Wages Claim</a>'
             ],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Family',
             col1:   [
                 '<a href="/family/children-advice/child-abduction">Child Abduction</a>',
@@ -538,7 +553,7 @@ return faqs
                 '<a href="/family/break-up-advice/starting-divorce-proceedings">Start Divorce proceedings</a>'
             ],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Motor Offences',
             col1:   [
                 '<a href="/motor-offences/driving-offences/careless-dangerous-driving">Careless / Dangerous Driving</a>',
@@ -548,17 +563,18 @@ return faqs
             col2: ['<a href="/motor-offences/driving-offences/speeding-offences">Speeding Offences</a>'],
             col3:   [],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Personal injury',
             col1:   [
                 '<a href="/personal-injury/accidents/accidents-at-work-claim">Accidents at work claim</a>',
                 '<a href="/personal-injury/accidents/accidents-in-a-public-place-claim">Accidents in a public place claim</a>',
                 
             ],
-            col2: ['<a href="/personal-injury/accidents/road-traffic-accident-claim">Road traffic accident claim</a>'],
+            col2: ['<a href="/personal-injury/accidents/road-traffic-accident-claim">Road traffic accident claim</a>',
+            '<a href="/personal-injury/accidents/accidents-and-illness-abroad-claim">Accidents and Illness Abroad Claim</a>'],
             col3:   [],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Property',
             col1:   [
                 '<a href="/property/property-ownership/buying-selling-a-property">Buying &amp; Selling a Property</a>',
@@ -580,7 +596,7 @@ return faqs
                 '<a href="/property/disputes/tenancy-disputes-for-tenant">Tenancy Disputes (for Tenant)</a>',
             ],
         }))
-        c.appendChild(createRow({
+        c.appendChild(new createRow({
             title: 'Wills and probate',
             col1:   [
                 '<a href="/wills-probate/dealing-with-an-estate/administer-an-estate">Administer an estate</a>',
@@ -597,6 +613,18 @@ return faqs
                 '<a href="/wills-probate/protecting-others/power-of-attorney-for-a-couple">Power of Attorney for a couple</a>',
                 '<a href="/wills-probate/protecting-others/power-of-attorney-for-an-individual">Power of Attorney for an individual</a>'
             ],
+        }))
+        c.appendChild(new createRow({
+            title: 'Business Services',
+            col1:   [
+                '<a href="/business/business-disputes">Business Disputes</a>',
+                '<a href="/business/business-employment">Business Employment</a>',
+            ],
+            col2: [
+                '<a href="/business/business-property">Business Property</a>',
+                '<a href="/business/business-services">Business Services</a>'
+            ],
+            col3:   [],
         }))
 
 
@@ -678,15 +706,16 @@ return faqs
 
     run()
     
-};
+//};
 
 function expandCat(el) {
     console.log(el)
     let x = el.parentElement.parentElement
+    x.classList.toggle('active')
     let cols = x.getElementsByClassName('col-12')
     console.log(cols)
     for (let i = 0; i < cols.length; i++) {
-        if(i === 0) continue
+        if (i === 0) continue
         cols[i].classList.toggle('show')
     }
 }
