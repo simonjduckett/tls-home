@@ -173,7 +173,7 @@
             {
                 icon: '<i class="fa-solid fa-people-roof"></i>',
                 name: 'Family',
-                content: 'Divorce, child arrangements, financially settlements, and more … ',
+                content: 'Divorce, child arrangements, financial settlements, and more … ',
                 link: 'https://www.thelawsuperstore.co.uk/family'
             },
             {
